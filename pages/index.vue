@@ -47,6 +47,11 @@ export default Vue.extend({
     posts () {
       return this.$store.state.posts.all
     }
+  },
+  head () {
+    return {
+      title: 'Home'
+    }
   }
 })
 

@@ -33,6 +33,17 @@ export default {
     relatedPosts () {
       return this.$store.state.posts.all.filter(post => post.id !== this.id);
     }
+  },
+  head () {
+    return {
+      title: this.post.title,
+      meta: [
+        { name: 'twitter:title', content: 'Nuxt Fundamentals by Vue School'},
+        { name: 'twitter:description', content: 'test'},
+        { name: 'twitter:image', content: 'https://i.imgur.com/UYP2umJ.png'},
+        { name: 'twitter:card', content: 'summary_large_image'}
+      ]
+    }
   }
 }
 </script>
