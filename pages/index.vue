@@ -23,6 +23,18 @@
           GitHub
         </a>
       </div>
+      <ul class="bg-blue-100 pl-3 mt-10 bg-black">
+        <li>
+          <nuxt-link
+          v-for="post in posts"
+          :to="`/post/${post.id}`"
+          :key="post.id"
+          class="button--grey"
+        >
+          {{post.title}}
+        </nuxt-link>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -30,23 +42,29 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  computed: {
+    posts () {
+      return this.$store.state.posts.all
+    }
+  }
+})
+
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
+
 .container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
+  @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
-*/
-.container {
+/* .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
+} */
 
 .title {
   font-family:

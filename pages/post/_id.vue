@@ -24,26 +24,14 @@ export default {
     return {
       id: this.$route.params.id,
       // id al final es el nombre del archivo
-      posts: [
-        {
-          id: 'Dulce',
-          title: 'Dulce life',
-          description: 'Dulce its just a little, little programmer developer...'
-        },
-        {
-          id: 'Luis',
-          title: 'Luis life',
-          description: 'Luis its just a little, little hacker person...'
-        }
-      ]
     }
   },
   computed: {
     post() {
-      return this.posts.find( post => post.id === this.id);
+      return this.$store.state.posts.all.find( post => post.id === this.id);
     },
     relatedPosts () {
-      return this.posts.filter(post => post.id !== this.id);
+      return this.$store.state.posts.all.filter(post => post.id !== this.id);
     }
   }
 }
